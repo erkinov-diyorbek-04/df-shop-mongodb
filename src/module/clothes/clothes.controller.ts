@@ -30,6 +30,11 @@ export class ClothesController {
     return this.clothesService.findOne(id);
   }
 
+  @Get(':category_id')
+  findOneCategory(@Param('category_id') category_id: string) {
+    return this.clothesService.findOneCategory(category_id);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateClotheDto: UpdateClotheDto) {
     return this.clothesService.update(id, updateClotheDto);

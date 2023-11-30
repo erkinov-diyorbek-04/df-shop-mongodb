@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument, Types } from 'mongoose';
+import { HydratedDocument } from 'mongoose';
 
 export type ClothesDocument = HydratedDocument<Clothes>;
 
@@ -14,7 +14,7 @@ export class Clothes {
   @Prop({ required: true })
   image: string;
 
-  @Prop({ required: true, type: Types.ObjectId, ref: 'Category' })
+  @Prop({ required: true })
   category_id: string;
 }
 

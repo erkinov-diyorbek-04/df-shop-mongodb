@@ -23,6 +23,10 @@ export class ClothesService {
     return await this.clothesModel.findById(id);
   }
 
+  async findOneCategory(category_id: string) {
+    return await this.clothesModel.find({ category_id });
+  }
+
   async update(id: string, updateClotheDto: UpdateClotheDto) {
     return await this.clothesModel.findByIdAndUpdate(id, updateClotheDto);
   }
