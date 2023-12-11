@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { ClothesService } from './clothes.service';
 import { CreateClotheDto } from './dto/create-clothe.dto';
@@ -14,6 +15,11 @@ import { UpdateClotheDto } from './dto/update-clothe.dto';
 @Controller('clothes')
 export class ClothesController {
   constructor(private readonly clothesService: ClothesService) {}
+
+  @Get()
+  findOneCategory(@Query() query: { category_id: string }) {
+    return this.clothesService.findOneCategory(query.category_id);
+  }
 
   @Post()
   create(@Body() createClotheDto: CreateClotheDto) {
@@ -28,11 +34,6 @@ export class ClothesController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.clothesService.findOne(id);
-  }
-
-  @Get(':category_id')
-  findOneCategory(@Param('category_id') category_id: string) {
-    return this.clothesService.findOneCategory(category_id);
   }
 
   @Patch(':id')
