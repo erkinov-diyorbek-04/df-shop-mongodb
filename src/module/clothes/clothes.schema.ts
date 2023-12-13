@@ -15,6 +15,9 @@ export class Clothes {
   image: string;
 
   @Prop({ required: true })
+  price: string;
+
+  @Prop({ required: true })
   category_id: string;
 }
 

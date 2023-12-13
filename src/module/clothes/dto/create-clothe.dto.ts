@@ -15,5 +15,9 @@ export class CreateClotheDto {
 
   @IsNotEmpty()
   @IsString()
+  price: string;
+
+  @IsNotEmpty()
+  @IsString()
   category_id: string;
 }
