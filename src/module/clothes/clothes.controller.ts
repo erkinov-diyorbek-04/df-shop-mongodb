@@ -21,19 +21,14 @@ export class ClothesController {
     return this.clothesService.findOneCategory(query.category_id);
   }
 
-  @Post()
-  create(@Body() createClotheDto: CreateClotheDto) {
-    return this.clothesService.create(createClotheDto);
-  }
-
-  @Get()
-  findAll() {
-    return this.clothesService.findAll();
-  }
-
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.clothesService.findOne(id);
+  }
+
+  @Post()
+  create(@Body() createClotheDto: CreateClotheDto) {
+    return this.clothesService.create(createClotheDto);
   }
 
   @Patch(':id')

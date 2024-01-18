@@ -15,16 +15,15 @@ export class ClothesService {
     return await this.clothesModel.create(createClotheDto);
   }
 
-  async findAll() {
-    return await this.clothesModel.find({});
-  }
-
   async findOne(id: string) {
     return await this.clothesModel.findById(id);
   }
 
   async findOneCategory(category_id: string) {
-    return await this.clothesModel.find({ category_id });
+    if (category_id) {
+      return await this.clothesModel.find({ category_id });
+    }
+    return await this.clothesModel.find();
   }
 
   async update(id: string, updateClotheDto: UpdateClotheDto) {
